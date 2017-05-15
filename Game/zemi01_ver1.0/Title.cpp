@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "Title.h"
+#include "Define.h"
 
 
 /***************************************
@@ -23,6 +24,8 @@ Title::Title(ISceneChanger * changer) : SceneTask(changer)
 void Title::Initialize()
 {
 	m_sceneHandle = LoadGraph("");
+	mSoundPlayHandle = LoadSoundMem(BACK_BGN); // サウンドのロード
+
 }
 
 /***************************************
@@ -35,6 +38,7 @@ void Title::Initialize()
 void Title::Update()
 {
 	if (CheckHitKey(KEY_INPUT_SPACE) != 0) {      // スペースキーが押されていたら
+		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Menu); // シーンをタイトルに変更
 	}
 }

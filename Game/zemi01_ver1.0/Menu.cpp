@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "Menu.h"
+#include "Define.h"
 
 Menu::Menu(ISceneChanger* changer) : SceneTask(changer) {
 }
@@ -13,6 +14,7 @@ Menu::Menu(ISceneChanger* changer) : SceneTask(changer) {
 ***************************************/
 void Menu::Initialize() {
 	m_sceneHandle = LoadGraph("");    // 画像のロード
+	mSoundPlayHandle = LoadSoundMem(BACK_BGN); // サウンドのロード
 }
 
 /***************************************
@@ -24,15 +26,19 @@ void Menu::Initialize() {
 ***************************************/
 void Menu::Update() {
 	if (CheckHitKey(KEY_INPUT_G) != 0) {              // Gキーが押されていたら
+		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Game);     // シーンをゲーム画面に変更
 	}
 	if (CheckHitKey(KEY_INPUT_C) != 0) {              // Cキーが押されていたら
+		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Config);   // シーンを設定画面に変更
 	}
 	if (CheckHitKey(KEY_INPUT_T) != 0) {              // Tキーが押されていたら
+		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Tutorial); // シーンをチュートリアル画面に変更
 	}
 	if (CheckHitKey(KEY_INPUT_ESCAPE) != 0) {         // Escキーが押されていたら
+		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Title);    // シーンをタイトル画面に変更
 	}
 }

@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "Game.h"
+#include "Define.h"
 #include "Player.h"
 #include "Box.h"
 
@@ -17,6 +18,7 @@ Game::Game(ISceneChanger* changer) : SceneTask(changer) {
 
 void Game::Initialize() {
 	m_sceneHandle = LoadGraph("");    // 画像のロード
+	mSoundPlayHandle = LoadSoundMem(GAME_BGM); // サウンドのロード
 	PlayerInitialize();               // プレイヤーの初期化
 	BoxInitialize();                  // プレイヤーの初期化
 }
@@ -31,11 +33,13 @@ void Game::Initialize() {
 
 void Game::Update() {
 	if (CheckHitKey(KEY_INPUT_ESCAPE) != 0) {       // Escキーが押されていたら
+		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Menu);   // シーンをメニューに変更
 	}
 	if (ReturnDeliveryNum() >= 20) {            // 段ボールを20個納品したら
 		m_sceneChanger->ChangeScene(eScene_Result); // シーンをリザルトに変更
 	}
+	
 	kEnemy.Update();
 	kEnemy.Draw();
 
