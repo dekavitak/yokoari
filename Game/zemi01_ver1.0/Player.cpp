@@ -30,7 +30,7 @@ void PlayerInitialize() {
 	player.mY = 289;
 	player.mCenterX = player.mX + (PLAYER_WIDTH / 2);
 	player.mCenterY = player.mY + (PLAYER_HEIGHT / 2);
-	player.mSpeed = 5;
+	player.mSpeed = PLAYER_MAX_SPEED;
 	player.mGraphNum = 0;
 	player.mAnimationCnt = 0;
 	player.mTakeFlg = 0;
@@ -93,6 +93,9 @@ void PlayerMove() {
 
 	// プレイヤーの移動する向きを更新
 	PlayerController();
+
+	// 移動速度更新
+	player.mSpeed = PLAYER_MAX_SPEED - ReturnTakeCnt();
 
 	// 移動する向きによってプレイヤーの座標を動かす
 	if (player.mDirec == RIGHT) {

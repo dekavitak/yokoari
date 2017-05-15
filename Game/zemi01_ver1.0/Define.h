@@ -2,6 +2,7 @@
 #define PLAYER_HEIGHT 128     // プレイヤーの縦幅
 #define PLAYER_HIT_CEIL 353   // プレイヤーの当たり判定の一番上
 #define PLAYER_HIT_FLOOR 417  // プレイヤーの当たり判定の一番下
+#define PLAYER_MAX_SPEED 7    // プレイヤーの最高速度
 #define ANIMATION_SPEED 30    // アニメーションの速度
 
 #define STAGE_FLOOR 576       // ステージの一番下
