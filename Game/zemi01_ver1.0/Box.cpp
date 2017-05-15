@@ -118,6 +118,9 @@ void BoxMove() {
 						// 持っている数を加算する
 						TakeCnt++;
 
+						// 取得時SEの再生
+						PlaySoundFile(AITEM_SE, DX_PLAYTYPE_BACK);
+
 						// 段ボールを持たれている状態にする
 						box[i].mTakeFlg = true;
 
@@ -152,6 +155,9 @@ void BoxMove() {
 		for (int i = 0; i < BOX_LENGTH; i++) {
 			// 持たれている荷物があるなら
 			if (box[i].mTakeFlg == true) {
+
+				// SEの再生
+				PlaySoundFile(AITEM_SE, DX_PLAYTYPE_BACK);
 
 				// 段ボールの初期化
 				box[i].mTakeFlg = false;
