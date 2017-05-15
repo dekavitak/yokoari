@@ -33,7 +33,7 @@ void Game::Update() {
 	if (CheckHitKey(KEY_INPUT_ESCAPE) != 0) {       // Escキーが押されていたら
 		m_sceneChanger->ChangeScene(eScene_Menu);   // シーンをメニューに変更
 	}
-	if (CheckHitKey(KEY_INPUT_R) != 0) {            // Rキーが押されていたら
+	if (ReturnDeliveryNum() >= 20) {            // 段ボールを20個納品したら
 		m_sceneChanger->ChangeScene(eScene_Result); // シーンをリザルトに変更
 	}
 	kEnemy.Update();

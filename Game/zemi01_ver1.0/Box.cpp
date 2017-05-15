@@ -14,6 +14,7 @@ int BoxImage;
 // 段ボールの生成時に使用する変数
 int SpawnCnt;   // 段ボール出現までのカウント
 int TakeCnt;    // 現在持っている数
+int DeliveryNum;// 納品した数を格納する変数
 
 // マウスの状態を格納する変数
 int Mouse_Input;
@@ -37,6 +38,7 @@ void BoxInitialize() {
 	InitBoxHitFlg();
 	SpawnCnt = 0;
 	TakeCnt = 0;
+	DeliveryNum = 0;
 	// 画像のロード
 	BoxImage = LoadGraph("img/Box.png");
 }
@@ -159,6 +161,7 @@ void BoxMove() {
 				box[i].mCenterX = box[i].mX + (BOX_WIDTH / 2);
 				box[i].mCenterY = box[i].mY + (BOX_HEIGHT / 2);
 				TakeCnt--;
+				DeliveryNum++;
 			}
 		}
 	}
@@ -215,5 +218,16 @@ int ReturnBoxLeft(int number) {
 int ReturnBoxTakeFlg(int number) {
 
 	return box[number].mTakeFlg;
+
+}
+
+/****************************************
+機能　：段ボールの納品した数の合計を返す
+引数　：None
+返り値：TakeCnt
+*****************************************/
+int ReturnDeliveryNum() {
+
+	return DeliveryNum;
 
 }
