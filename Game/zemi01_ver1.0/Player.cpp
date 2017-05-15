@@ -14,6 +14,9 @@ int PlayerImage[4];
 // マウスの座標を格納する変数
 int Mouse_x, Mouse_y;
 
+// 持っている数を格納する変数
+int Take_num;
+
 /****************************************
 機能　：プレイヤー関連の変数等の初期化
 引数　：None
@@ -33,6 +36,9 @@ void PlayerInitialize() {
 	player.mTakeFlg = 0;
 	player.mGraphFlg = false;
     InitPlayerHitFlg();
+
+	// 変数の初期化
+	Take_num = 0;
 
 	// 画像のロード
 	LoadDivGraph("img/yokoari.png", 4, 4, 1, 128, 128, PlayerImage);
