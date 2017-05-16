@@ -3,6 +3,7 @@
 #include "Define.h"
 #include "Player.h"
 #include "Box.h"
+#include "Time.h"
 
 
 Game::Game(ISceneChanger* changer) : SceneTask(changer) {
@@ -20,7 +21,8 @@ void Game::Initialize() {
 	m_sceneHandle = LoadGraph("");    // 画像のロード
 	mSoundPlayHandle = LoadSoundMem(GAME_BGM); // サウンドのロード
 	PlayerInitialize();               // プレイヤーの初期化
-	BoxInitialize();                  // プレイヤーの初期化
+	BoxInitialize();                  // 段ボールの初期化
+	TimerInitialize();
 }
 
 /***************************************
@@ -36,7 +38,8 @@ void Game::Update() {
 		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Menu);   // シーンをメニューに変更
 	}
-	if (ReturnDeliveryNum() >= 20) {            // 段ボールを20個納品したら
+	if (ReturnDeliveryNum() >= 20 ||
+		ReturnTimerFlg() == true) {            // 段ボールを20個納品したら
 		m_sceneChanger->ChangeScene(eScene_Result); // シーンをリザルトに変更
 	}
 	
@@ -56,6 +59,8 @@ void Game::Update() {
 	// プレイヤーの動き、描画
 	PlayerMove();
 	PlayerView();
+
+	TimerUpdate();
 }
 
 /***************************************

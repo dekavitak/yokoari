@@ -16,6 +16,8 @@
 #define BOX_SPAWN_TIME 60     // 段ボールの出現する時間
 #define BOX_TAKE_LIMIT 5      // 段ボールを１度に持てる数の限界
 
+#define MAX_TIME 30           // 制限時間
+
 /* サウンド系 */
 #define BACK_BGN "sound/BGM.mp3"      // 共有BGM
 #define GAME_BGM "sound/Game.mp3"     // ゲームBGM
