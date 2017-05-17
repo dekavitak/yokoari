@@ -21,7 +21,10 @@ void Game::Initialize() {
 	m_sceneHandle = LoadGraph("");    // 画像のロード
 	mSoundPlayHandle = LoadSoundMem(GAME_BGM); // サウンドのロード
 	PlayerInitialize();               // プレイヤーの初期化
-	BoxInitialize();                  // 段ボールの初期化
+
+	for (int i = 0; i < BOX_LENGTH; i++) {
+		BoxInitialize(i);                  // 段ボールの初期化
+	}
 	TimerInitialize();
 }
 
@@ -53,12 +56,12 @@ void Game::Update() {
 	wEnemy.Draw();
 	
 	// 段ボールの動き、描画
-	BoxMove();
-	BoxView();
+	BoxUpdate();
+	BoxRender();
 
 	// プレイヤーの動き、描画
-	PlayerMove();
-	PlayerView();
+	PlayerUpdate();
+	PlayerRender();
 
 	TimerUpdate();
 }

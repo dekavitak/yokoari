@@ -50,7 +50,7 @@ void PlayerInitialize() {
 引数　：None
 返り値：None
 *****************************************/
-void PlayerView() {
+void PlayerRender() {
 
 	// 表示する画像の更新
 	PlayerAnimation();
@@ -108,6 +108,20 @@ void PlayerMove() {
 	// 動きの制御
 	PlayerMoveLimit();
 
+	// 中心座標の更新
+	player.mCenterX = player.mX + (PLAYER_WIDTH / 2);
+}
+
+/****************************************
+機能　：プレイヤーの更新
+引数　：None
+返り値：None
+*****************************************/
+void PlayerUpdate() {
+
+	// プレイヤーを動かす
+	PlayerMove();
+
 	// 持っている状態の更新
 	for (int i = 0; i < BOX_LENGTH; i++) {
 		// 持っているなら
@@ -129,8 +143,6 @@ void PlayerMove() {
 	else {
 		player.mTakeFlg = NEUTRAL;
 	}
-	// 中心座標の更新
-	player.mCenterX = player.mX + (PLAYER_WIDTH / 2);
 }
 
 /****************************************
