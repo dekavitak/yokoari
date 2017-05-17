@@ -23,6 +23,7 @@ void Game::Initialize() {
 	PlayerInitialize();               // プレイヤーの初期化
 	BoxInitialize();                  // 段ボールの初期化
 	TimerInitialize();
+
 }
 
 /***************************************
@@ -43,14 +44,6 @@ void Game::Update() {
 		m_sceneChanger->ChangeScene(eScene_Result); // シーンをリザルトに変更
 	}
 	
-	kEnemy.Update();
-	kEnemy.Draw();
-
-	aEnemy.Update();
-	aEnemy.Draw();
-
-	wEnemy.Update();
-	wEnemy.Draw();
 	
 	// 段ボールの動き、描画
 	BoxMove();
