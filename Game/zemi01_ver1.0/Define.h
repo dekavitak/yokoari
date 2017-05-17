@@ -5,9 +5,12 @@
 #define PLAYER_MAX_SPEED 7    // プレイヤーの最高速度
 #define ANIMATION_SPEED 30    // アニメーションの速度
 
+/* Enemy */
+#define ENEMY_MAX_CREATE 10   // 敵の生成できる最大数
+
 #define STAGE_FLOOR 576       // ステージの一番下
-#define STAGE_LEFT 230        // ステージの左端
-#define STAGE_RIGHT 650       // ステージの右端
+#define STAGE_LEFT 350        // ステージの左端
+#define STAGE_RIGHT 900       // ステージの右端
 
 #define BOX_SPEED 3           // 段ボールの動く速さ
 #define BOX_WIDTH 64          // 段ボールの横幅
