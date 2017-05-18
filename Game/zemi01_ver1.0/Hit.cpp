@@ -7,6 +7,8 @@
 struct Hit box;
 struct Hit player;
 
+
+
 /*******************************************
 機能　：段ボールの当たり判定フラグの初期化
 引数　：None
@@ -58,4 +60,16 @@ void BoxAndPlayerHit(int player_right, int player_left, int box_right, int box_l
 		player.mHitFlg = BOX;
 		box.mHitFlg = PLAYER;
 	}
+}
+
+void EnemyAndPlayerHit(int player_right, int player_left, int enemy_right, int enemy_left)
+{
+
+	if (player_right >= enemy_left &&
+		player_left <= enemy_right) {
+
+		player.mHitFlg = ENEMY;
+	}
+
+
 }

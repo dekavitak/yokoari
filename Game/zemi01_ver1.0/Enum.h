@@ -6,6 +6,7 @@ enum eDIREC {
 	LEFT,     // 2
 };
 
+
 // “–‚½‚è”»’èŠÖ˜A(‰½‚É“–‚½‚Á‚½‚©)
 enum eHIT {
 

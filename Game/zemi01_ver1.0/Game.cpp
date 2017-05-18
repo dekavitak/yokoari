@@ -6,6 +6,7 @@
 #include "Time.h"
 
 
+
 Game::Game(ISceneChanger* changer) : SceneTask(changer) {
 }
 
@@ -26,6 +27,7 @@ void Game::Initialize() {
 		BoxInitialize(i);                  // 段ボールの初期化
 	}
 	TimerInitialize();
+
 }
 
 /***************************************
@@ -45,15 +47,8 @@ void Game::Update() {
 		ReturnTimerFlg() == true) {            // 段ボールを20個納品したら
 		m_sceneChanger->ChangeScene(eScene_Result); // シーンをリザルトに変更
 	}
-	
-	kEnemy.Update();
-	kEnemy.Draw();
-
-	aEnemy.Update();
-	aEnemy.Draw();
-
-	wEnemy.Update();
-	wEnemy.Draw();
+	enemyMgr.Update();
+	enemyMgr.Draw();
 	
 	// 段ボールの動き、描画
 	BoxUpdate();

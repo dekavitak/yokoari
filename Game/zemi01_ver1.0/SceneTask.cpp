@@ -10,6 +10,7 @@
 ***************************************/
 SceneTask::SceneTask(ISceneChanger* changer) : m_sceneHandle(0)
 {
+
 	m_sceneChanger = changer;
 }
 

@@ -6,9 +6,9 @@
 
 #include "SceneTask.h"
 #include "ISceneChanger.h"
-#include "KidsEnemy.h"
-#include "AdultEnemy.h"
-#include "WaterEnemy.h"
+#include "EnemyManager.h"
+
+
 
 //ゲーム画面クラス
 class Game : public SceneTask {
@@ -18,9 +18,9 @@ public:
 	void Initialize() override;    // 初期化処理をオーバーライド。
 	void Update()     override;    // 更新処理をオーバーライド。
 	void Draw()       override;    // 描画処理をオーバーライド。
+	EnemyManager enemyMgr;
 
-	KidsEnemy kEnemy;
-	AdultEnemy aEnemy;
-	WaterEnemy wEnemy;
+
+
 
 };

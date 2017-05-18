@@ -5,6 +5,7 @@
 #include "Hit.h"
 #include "Box.h"
 
+
 // 構造体オブジェクトの生成
 struct PLAYER player;
 

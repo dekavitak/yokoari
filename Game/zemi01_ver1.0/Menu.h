@@ -8,6 +8,7 @@
 
 class Menu : public SceneTask {
 
+
 public:
 	Menu(ISceneChanger* changer);
 	void Initialize() override;    // 初期化処理をオーバーライド。

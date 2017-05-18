@@ -1,6 +1,7 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
 
+
 // プレイヤーの基本データ
 struct PLAYER {
 	int mX;				 // x座標

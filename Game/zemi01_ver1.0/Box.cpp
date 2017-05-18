@@ -8,6 +8,8 @@
 // 構造体オブジェクトの生成
 struct Box box[10];
 
+
+
 // 画像ハンドル
 int BoxImage;
 
@@ -27,6 +29,7 @@ int Mouse_Input;
 void BoxInitialize(int number) {
 
 	// 変数などの初期化
+<<<<<<< HEAD
 	
 	box[number].mLivingFlg = false;
 	box[number].mTakeFlg = false;
@@ -35,6 +38,16 @@ void BoxInitialize(int number) {
 	box[number].mCenterX = box[number].mX + (BOX_WIDTH / 2);
 	box[number].mCenterY = box[number].mY + (BOX_HEIGHT / 2);
 	
+=======
+	for (int i = 0; i < BOX_LENGTH; i++) {
+		box[i].mLivingFlg = false;
+		box[i].mTakeFlg = false;
+		box[i].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+		box[i].mY = 100;
+		box[i].mCenterX = box[i].mX + (BOX_WIDTH / 2);
+		box[i].mCenterY = box[i].mY + (BOX_HEIGHT / 2);
+	}
+>>>>>>> 178e4849f0723f2c89f906f984aa2a087ff0f45f
 	InitBoxHitFlg();
 	SpawnCnt = 0;
 	TakeCnt = 0;
@@ -81,7 +94,13 @@ void BoxRender() {
 引数　：配列の部屋番号
 返り値：None
 ***************************************/
+<<<<<<< HEAD
 void BoxMove(int number) {
+=======
+void BoxMove() {
+	
+	
+>>>>>>> 178e4849f0723f2c89f906f984aa2a087ff0f45f
 
 	// 段ボールが存在するなら
 	if (box[number].mLivingFlg == true) {
@@ -176,8 +195,13 @@ void BoxUpdate() {
 				// 段ボールの初期化
 				box[i].mTakeFlg = false;
 				box[i].mLivingFlg = false;
+<<<<<<< HEAD
 				box[i].mX = 500;
 				box[i].mY = -50;
+=======
+				box[i].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+				box[i].mY = 100;
+>>>>>>> 178e4849f0723f2c89f906f984aa2a087ff0f45f
 				box[i].mCenterX = box[i].mX + (BOX_WIDTH / 2);
 				box[i].mCenterY = box[i].mY + (BOX_HEIGHT / 2);
 				TakeCnt--;
@@ -199,8 +223,13 @@ void BoxMoveLimit(int number) {
 	if (box[number].mY > STAGE_FLOOR) {
 		// 段ボールの初期化
 		box[number].mLivingFlg = false;
+<<<<<<< HEAD
 		box[number].mX = 500;
 		box[number].mY = -50;
+=======
+		box[number].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+		box[number].mY = 100;
+>>>>>>> 178e4849f0723f2c89f906f984aa2a087ff0f45f
 		box[number].mCenterX = box[number].mX + (BOX_WIDTH / 2);
 		box[number].mCenterY = box[number].mY + (BOX_HEIGHT / 2);
 
@@ -262,4 +291,27 @@ int ReturnDeliveryNum() {
 
 	return DeliveryNum;
 
+}
+
+/***************************************
+機能  : 段ボールの持っている数を0にする
+引数  : None
+返り値: None
+***************************************/
+void ResetTakeCnt() {
+
+	for (int i = 0; i < BOX_LENGTH; i++) {
+
+		// 持たれている荷物があるなら
+		if (box[i].mTakeFlg == true) {
+			// 段ボールの初期化
+			box[i].mTakeFlg = false;
+			box[i].mLivingFlg = false;
+			box[i].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+			box[i].mY = 100;
+			box[i].mCenterX = box[i].mX + (BOX_WIDTH / 2);
+			box[i].mCenterY = box[i].mY + (BOX_HEIGHT / 2);
+			TakeCnt--;
+		}
+	}
 }
