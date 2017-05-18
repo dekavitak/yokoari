@@ -1,7 +1,7 @@
 #include "DxLib.h"
 #include "Result.h"
 #include "Define.h"
-#include "Time.h"
+
 
 
 /***************************************
@@ -25,7 +25,7 @@ Result::Result(ISceneChanger * changer) : SceneTask(changer)
 ***************************************/
 void Result::Initialize()
 {
-	m_clearTime = ClearTime();
+	
 	m_sceneHandle = LoadGraph(SCENE_PIC);
 	mSoundPlayHandle = LoadSoundMem(BACK_BGN); // サウンドのロード
 	SetFontSize(32);
@@ -59,7 +59,7 @@ void Result::Draw()
 {
 	
 	SceneTask::Draw(); // 親クラスの描画メソッドを呼ぶ
-	DrawFormatString(320, 250,GetColor(0, 0, 0),"%d", ClearTime());
+	DrawString(320, 300, "クリアおめでとう！", GetColor(0, 0, 0));
 	DrawString(320, 660, "クリックで戻れるよ！", GetColor(0, 0, 0));
 }
 

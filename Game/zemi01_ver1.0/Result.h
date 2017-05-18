@@ -18,7 +18,7 @@ private:
 	int Mouse_x;
 	int Mouse_y;
 	int Mouse_Input;
-	int m_clearTime;
+
 
 };
 
