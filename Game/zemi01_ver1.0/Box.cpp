@@ -4,6 +4,7 @@
 #include"Enum.h"
 #include"Hit.h"
 #include"Player.h"
+#include"Truck.h"
 
 // 構造体オブジェクトの生成
 struct Box box[10];
@@ -172,30 +173,35 @@ void BoxUpdate() {
 	// 生成カウントの加算
 	SpawnCnt++;
 	
+	// 納品範囲内なら
+	if (ReturnPlayerCenterY() >= ReturnTruckHitCeil() &&
+		ReturnPlayerCenterY() <= ReturnTruckHitFloor() &&
+		ReturnPlayerCenterX() >= ReturnTruckHitLeft() &&
+		ReturnPlayerCenterX() <= ReturnTruckHitRight()) {
+		// マウスの状態を取得
+		Mouse_Input = GetMouseInput();
 
-	// マウスの状態を取得
-	Mouse_Input = GetMouseInput();
+		// 左クリックされたら
+		if (Mouse_Input & MOUSE_INPUT_LEFT) {
+			for (int i = 0; i < BOX_LENGTH; i++) {
+				// 持たれている荷物があるなら
+				if (box[i].mTakeFlg == true) {
 
-	// 左クリックされたら
-	if (Mouse_Input & MOUSE_INPUT_LEFT) {
-		for (int i = 0; i < BOX_LENGTH; i++) {
-			// 持たれている荷物があるなら
-			if (box[i].mTakeFlg == true) {
+					// SEの再生
+					PlaySoundFile(AITEM_SE, DX_PLAYTYPE_BACK);
 
-				// SEの再生
-				PlaySoundFile(AITEM_SE, DX_PLAYTYPE_BACK);
-
-				// 段ボールの初期化
-				box[i].mTakeFlg = false;
-				box[i].mLivingFlg = false;
-				box[i].mX = 500;
-				box[i].mY = -50;
-				box[i].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
-				box[i].mY = 100;
-				box[i].mCenterX = box[i].mX + (BOX_WIDTH / 2);
-				box[i].mCenterY = box[i].mY + (BOX_HEIGHT / 2);
-				TakeCnt--;
-				DeliveryNum++;
+					// 段ボールの初期化
+					box[i].mTakeFlg = false;
+					box[i].mLivingFlg = false;
+					box[i].mX = 500;
+					box[i].mY = -50;
+					box[i].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+					box[i].mY = 100;
+					box[i].mCenterX = box[i].mX + (BOX_WIDTH / 2);
+					box[i].mCenterY = box[i].mY + (BOX_HEIGHT / 2);
+					TakeCnt--;
+					DeliveryNum++;
+				}
 			}
 		}
 	}

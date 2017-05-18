@@ -4,10 +4,10 @@
 #include"Define.h"
 
 time_t LimitStart, Now;  // 開始時の時間, 経過時間
-time_t DeliStart;        // 納品者が来るまでの計測開始時間
+//time_t DeliStart;        // 納品者が来るまでの計測開始時間
 
 bool timer_flg;     // 制限時間が経過したかどうかのフラグ
-bool deli_flg;      // 納品者情報の表示の切り替えフラグ
+//bool deli_flg;      // 納品者情報の表示の切り替えフラグ
 
 /****************************************
 機能　：タイマーの初期化
@@ -17,9 +17,9 @@ bool deli_flg;      // 納品者情報の表示の切り替えフラグ
 void TimerInitialize() {
 
 	time(&LimitStart);
-	time(&DeliStart);
+	//time(&DeliStart);
 	timer_flg = false;
-	deli_flg = false;
+	//deli_flg = false;
 	
 }
 
@@ -38,7 +38,7 @@ void TimerUpdate() {
 	}
 	// 制限時間の表示
 	DrawFormatString(0, 130, GetColor(255, 255, 255), "制限時間:%d秒", (int)((LimitStart + MAX_TIME) - Now));
-
+	/*
 	time(&Now);
 	// 納品者が到着していないなら
 	if (deli_flg == false) {
@@ -60,7 +60,7 @@ void TimerUpdate() {
 		// 時間の表示
 		DrawFormatString(0, 170, GetColor(255, 255, 255), "納品者が通過するまで:%d秒", (int)((DeliStart + DELI_PASS_TIME) - Now));
 	}
-
+	*/
 }
 
 /****************************************

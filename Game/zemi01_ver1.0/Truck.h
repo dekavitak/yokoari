@@ -9,6 +9,8 @@ struct TRUCK {
 	int mCenterY;
 	int mHitCeil;
 	int mHitFloor;
+	int mHitRight;
+	int mHitLeft;
 	int mDirec;
 	int mSpeed;
 	bool mGetFlg;
@@ -21,6 +23,8 @@ void TruckMove();              // ”[•iÒ‚Ì“®‚«
 void TruckUpdate();            // ”[•iÒ‚ÌXV
 void TruckRender();            // ”[•iÒ‚Ì•`‰æ
 int ReturnTruckHitCeil();      // ”[•iÒ‚Ì”[•i”ÍˆÍ‚ÌãŒÀ‚ğ•Ô‚·
-int ReturnTruckHitCeil();      // ”[•iÒ‚Ì”[•i”ÍˆÍ‚Ì‰ºŒÀ‚ğ•Ô‚·
+int ReturnTruckHitFloor();      // ”[•iÒ‚Ì”[•i”ÍˆÍ‚Ì‰ºŒÀ‚ğ•Ô‚·
+int ReturnTruckHitLeft();      // ”[•iÒ‚Ì”[•i”ÍˆÍ‚Ì¶‘¤‚ğ•Ô‚·
+int ReturnTruckHitRight();      // ”[•iÒ‚Ì”[•i”ÍˆÍ‚Ì‰E‘¤‚ğ•Ô‚·
 
 #endif // !_TRUCK_H_

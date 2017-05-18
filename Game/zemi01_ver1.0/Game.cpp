@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Box.h"
 #include "Time.h"
+#include "Truck.h"
 
 
 
@@ -26,7 +27,9 @@ void Game::Initialize() {
 	for (int i = 0; i < BOX_LENGTH; i++) {
 		BoxInitialize(i);                  // ’iƒ{[ƒ‹‚Ì‰Šú‰»
 	}
-	TimerInitialize();
+
+	TimerInitialize();      // ŽžŠÔ‚Ì‰Šú‰»
+	TruckInitialize();      // ”[•iŽÒ‚Ì‰Šú‰»
 
 	SetFontSize(16);
 }
@@ -59,7 +62,12 @@ void Game::Update() {
 	PlayerUpdate();
 	PlayerRender();
 
+	// ŽžŠÔ‚Ì•\Ž¦
 	TimerUpdate();
+
+	// ”[•iŽÒ‚Ì•`‰æ
+	TruckRender();
+	TruckUpdate();
 }
 
 /***************************************

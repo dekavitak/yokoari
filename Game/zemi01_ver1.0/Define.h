@@ -31,6 +31,9 @@
 /* Truck */
 #define TRUCK_WIDTH 128       // トラックの横幅
 #define TRUCK_HEIGHT 128      // トラックの縦幅
+#define TRUCK_MOVE_HEIGHT 800 // トラックが動く横幅
+#define TRUCK_SPAWN_RIGHT 700 // トラックの出現する場所
+#define TRUCK_SPAWN_LEFT 100  // トラックの出現する場所
 
 
 /* Time */

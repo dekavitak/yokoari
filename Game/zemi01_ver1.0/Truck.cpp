@@ -20,14 +20,23 @@ int TruckImage[2];
 void TruckInitialize() {
 
 	// 変数などの初期化
-	truck.mX = 0;
+	truck.mDirec = GetRand(1) + 1;
+
+	// 乱数により描画するx座標を変える
+	if (truck.mDirec == RIGHT) {
+		truck.mX = TRUCK_SPAWN_RIGHT;
+	}
+	else {
+		truck.mX = TRUCK_SPAWN_LEFT;
+	}
 	truck.mY = 0;
 	truck.mCenterX = truck.mX + (TRUCK_WIDTH / 2);
 	truck.mCenterY = truck.mY + (TRUCK_HEIGHT / 2);
 	truck.mHitCeil = truck.mCenterY - TRUCK_HEIGHT;
 	truck.mHitFloor = truck.mCenterY + TRUCK_HEIGHT;
-	truck.mDirec = NEUTRAL;
-	truck.mSpeed = (int)(720 / DELI_PASS_TIME);
+	truck.mHitLeft = truck.mCenterX - TRUCK_WIDTH;
+	truck.mHitRight = truck.mCenterX + TRUCK_WIDTH;
+	truck.mSpeed = (int)(TRUCK_MOVE_HEIGHT / (DELI_PASS_TIME * 60));
 	truck.mGetFlg = false;
 	truck.mLivingFlg = false;
 
@@ -47,6 +56,9 @@ void TruckMove() {
 
 	// 納品者を動かす
 	truck.mY += truck.mSpeed;
+	truck.mCenterY = truck.mY + (TRUCK_HEIGHT / 2);
+	truck.mHitCeil = truck.mCenterY - TRUCK_HEIGHT;
+	truck.mHitFloor = truck.mCenterY + TRUCK_HEIGHT;
 
 }
 
@@ -71,10 +83,15 @@ void TruckUpdate() {
 	else {
 		// 通り過ぎる時間になったら
 		if ((TruckStart + DELI_PASS_TIME) <= TruckNow) {
-			truck.mGetFlg = false;
-			truck.mLivingFlg = false;
+			// 初期化
+			TruckInitialize();
 			time(&TruckStart);
 		}
+	}
+
+	// 納品者がいるなら
+	if (truck.mLivingFlg == true) {
+		TruckMove();
 	}
 
 }
@@ -97,5 +114,54 @@ void TruckRender() {
 		// 時間の表示
 		DrawFormatString(0, 170, GetColor(255, 255, 255), "納品者が通過するまで:%d秒", (int)((TruckStart + DELI_PASS_TIME) - TruckNow));
 	}
+
+	// 納品者が存在しているなら
+	if (truck.mLivingFlg == true) {
+		DrawGraph(truck.mX, truck.mY, TruckImage[0], TRUE);
+	}
+
+}
+
+/****************************************
+機能　：納品者の納品範囲の上限を返す
+引数　：None
+返り値：truck.mHitCeil
+*****************************************/
+int ReturnTruckHitCeil() {
+
+	return truck.mHitCeil;
+
+}
+
+/****************************************
+機能　：納品者の納品範囲の下限を返す
+引数　：None
+返り値：truck.mHitFloor
+*****************************************/
+int ReturnTruckHitFloor() {
+
+	return truck.mHitFloor;
+
+}
+
+/****************************************
+機能　：納品者の納品範囲の左側を返す
+引数　：None
+返り値：truck.mHitLeft
+*****************************************/
+int ReturnTruckHitLeft() {
+
+	return truck.mHitLeft;
+
+}
+
+/****************************************
+機能　：納品者の納品範囲の右側を返す
+引数　：None
+返り値：truck.mHitRight
+*****************************************/
+int ReturnTruckHitRight() {
+
+	return truck.mHitRight;
 
 }
