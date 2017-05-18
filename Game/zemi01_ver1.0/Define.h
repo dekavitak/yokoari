@@ -28,6 +28,10 @@
 #define BOX_TAKE_LIMIT 5      // 段ボールを１度に持てる数の限界
 #define GOAL 20               // 目標納品数
 
+/* Truck */
+#define TRUCK_WIDTH 128       // トラックの横幅
+#define TRUCK_HEIGHT 128      // トラックの縦幅
+
 
 /* Time */
 #define MAX_TIME 180          // 制限時間
@@ -47,7 +51,7 @@
 #define ADULT_ENEMY "img/enemy/Adult.png"      // 大人
 #define KIDS_ENEMY "img/enemy/Kids.png"        // 子供
 #define WATER_ENEMY "img/enemy/water.png"      // 水
-#define TRUCK_OBJECT "img/Player/truck.png"    // トラック
+#define TRUCK_OBJECT "img/Player/Truck.png"    // トラック
 #define TITLE_PIC "img/stage/title.png"        // タイトル画像
 #define SCENE_PIC "img/stage/scene.png"        // シーン画像
 #define TUTORIAL_PIC "img/stage/tutorial.png"  // チュートリアル画像
