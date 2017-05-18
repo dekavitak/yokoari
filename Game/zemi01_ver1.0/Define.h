@@ -55,6 +55,6 @@
 #define BACK_GROUND "img/stage/backGround.png" // 背景画像
 
 /* UI */
-#define MENU_BUTTON "img/menuButton"             // メニューボタン
+#define MENU_BUTTON "img/menuButton.png"             // メニューボタン
 #define START_BUTTON "img/startButton.png"       // スタートボタン
 #define TUTORIAL_BUTTON "img/tutorialButton.png" // チュートリアルボタン
