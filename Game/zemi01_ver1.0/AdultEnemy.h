@@ -12,6 +12,8 @@ public:
 private:
 	int m_x;
 	int m_y;
+	int m_CenterX;
+	int m_CenterY;
 	int m_moveCnt = 0;
 	int m_Flag = ENEMY_RIGHT;
 };

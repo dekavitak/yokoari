@@ -8,6 +8,8 @@
 // 構造体オブジェクトの生成
 struct Box box[10];
 
+
+
 // 画像ハンドル
 int BoxImage;
 
@@ -79,6 +81,8 @@ void BoxView() {
 返り値：None
 ***************************************/
 void BoxMove() {
+	
+	
 
 	// 段ボールを動かす
 	for (int i = 0; i < BOX_LENGTH; i++) {
@@ -247,4 +251,27 @@ int ReturnDeliveryNum() {
 
 	return DeliveryNum;
 
+}
+
+/***************************************
+機能  : 段ボールの持っている数を0にする
+引数  : None
+返り値: None
+***************************************/
+void ResetTakeCnt() {
+
+	for (int i = 0; i < BOX_LENGTH; i++) {
+
+		// 持たれている荷物があるなら
+		if (box[i].mTakeFlg == true) {
+			// 段ボールの初期化
+			box[i].mTakeFlg = false;
+			box[i].mLivingFlg = false;
+			box[i].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+			box[i].mY = 100;
+			box[i].mCenterX = box[i].mX + (BOX_WIDTH / 2);
+			box[i].mCenterY = box[i].mY + (BOX_HEIGHT / 2);
+			TakeCnt--;
+		}
+	}
 }

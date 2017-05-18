@@ -3,6 +3,7 @@
 #include "EnemyTask.h"
 
 
+
 class WaterEnemy : public EnemyTask
 {
 public:
@@ -14,5 +15,7 @@ public:
 private:
 	int m_x;
 	int m_y;
+	int m_CenterX;
+	int m_CenterY;
 };
 

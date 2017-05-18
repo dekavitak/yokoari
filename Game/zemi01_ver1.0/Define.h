@@ -9,6 +9,8 @@
 #define ENEMY_MAX_CREATE 10   // 敵の生成できる最大数
 #define ENEMY_RIGHT 0         // 敵が右を向いている情報
 #define ENEMY_LEFT  1		  // 敵が左を向いている情報
+#define ENEMY_WIDTH 64        // 敵の横幅
+#define ENEMY_HEIGHT 64       // 敵の縦幅
 
 #define STAGE_FLOOR 576       // ステージの一番下
 #define STAGE_LEFT 350        // ステージの左端
