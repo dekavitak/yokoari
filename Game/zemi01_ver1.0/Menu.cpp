@@ -14,7 +14,7 @@ Menu::Menu(ISceneChanger* changer) : SceneTask(changer) {
 備考   : なし
 ***************************************/
 void Menu::Initialize() {
-	m_sceneHandle = LoadGraph("");    // 画像のロード
+	m_sceneHandle = LoadGraph("SCENE_PIC");    // 画像のロード
 	mSoundPlayHandle = LoadSoundMem(BACK_BGN); // サウンドのロード
 }
 

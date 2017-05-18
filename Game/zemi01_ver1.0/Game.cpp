@@ -19,7 +19,7 @@ Game::Game(ISceneChanger* changer) : SceneTask(changer) {
 ***************************************/
 
 void Game::Initialize() {
-	m_sceneHandle = LoadGraph("");    // 画像のロード
+	m_sceneHandle = LoadGraph("STAGE_PIC");    // 画像のロード
 	mSoundPlayHandle = LoadSoundMem(GAME_BGM); // サウンドのロード
 	PlayerInitialize();               // プレイヤーの初期化
 	BoxInitialize();                  // 段ボールの初期化

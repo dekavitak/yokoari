@@ -24,7 +24,7 @@ Title::Title(ISceneChanger * changer) : SceneTask(changer)
 ***************************************/
 void Title::Initialize()
 {
-	m_sceneHandle = LoadGraph("");
+	m_sceneHandle = LoadGraph("TITLE_PIC");
 	mSoundPlayHandle = LoadSoundMem(BACK_BGN); // サウンドのロード
 
 }

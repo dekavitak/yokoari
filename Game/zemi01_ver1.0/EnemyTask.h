@@ -10,6 +10,7 @@
 
 class EnemyTask : public IEnemy {
 
+	protexted:
 
 public:
 	EnemyTask();							 // コンストラクタ	
