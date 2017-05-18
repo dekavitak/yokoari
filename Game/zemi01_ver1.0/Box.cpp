@@ -30,8 +30,8 @@ void BoxInitialize() {
 	for (int i = 0; i < BOX_LENGTH; i++) {
 		box[i].mLivingFlg = false;
 		box[i].mTakeFlg = false;
-		box[i].mX = 250;
-		box[i].mY = -50;
+		box[i].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+		box[i].mY = 100;
 		box[i].mCenterX = box[i].mX + (BOX_WIDTH / 2);
 		box[i].mCenterY = box[i].mY + (BOX_HEIGHT / 2);
 	}
@@ -162,8 +162,8 @@ void BoxMove() {
 				// 段ボールの初期化
 				box[i].mTakeFlg = false;
 				box[i].mLivingFlg = false;
-				box[i].mX = 250;
-				box[i].mY = -50;
+				box[i].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+				box[i].mY = 100;
 				box[i].mCenterX = box[i].mX + (BOX_WIDTH / 2);
 				box[i].mCenterY = box[i].mY + (BOX_HEIGHT / 2);
 				TakeCnt--;
@@ -184,8 +184,8 @@ void BoxMoveLimit(int number) {
 	if (box[number].mY > STAGE_FLOOR) {
 		// 段ボールの初期化
 		box[number].mLivingFlg = false;
-		box[number].mX = 250;
-		box[number].mY = -50;
+		box[number].mX = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+		box[number].mY = 100;
 		box[number].mCenterX = box[number].mX + (BOX_WIDTH / 2);
 		box[number].mCenterY = box[number].mY + (BOX_HEIGHT / 2);
 

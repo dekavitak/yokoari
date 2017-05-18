@@ -7,6 +7,8 @@
 
 /* Enemy */
 #define ENEMY_MAX_CREATE 10   // 敵の生成できる最大数
+#define ENEMY_RIGHT 0         // 敵が右を向いている情報
+#define ENEMY_LEFT  1		  // 敵が左を向いている情報
 
 #define STAGE_FLOOR 576       // ステージの一番下
 #define STAGE_LEFT 350        // ステージの左端
@@ -19,7 +21,7 @@
 #define BOX_SPAWN_TIME 60     // 段ボールの出現する時間
 #define BOX_TAKE_LIMIT 5      // 段ボールを１度に持てる数の限界
 
-#define MAX_TIME 30           // 制限時間
+#define MAX_TIME 3000          // 制限時間
 
 /* サウンド系 */
 #define BACK_BGN "sound/BGM.mp3"      // 共有BGM

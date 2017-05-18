@@ -43,7 +43,8 @@ void Game::Update() {
 		ReturnTimerFlg() == true) {            // 段ボールを20個納品したら
 		m_sceneChanger->ChangeScene(eScene_Result); // シーンをリザルトに変更
 	}
-	
+	enemyMgr.Update();
+	enemyMgr.Draw();
 	
 	// 段ボールの動き、描画
 	BoxMove();
