@@ -99,8 +99,9 @@ void TruckUpdate() {
 	else {
 		// ’Ê‚è‰ß‚¬‚éŽžŠÔ‚É‚È‚Á‚½‚ç
 		if ((TruckStart + DELI_PASS_TIME) <= TruckNow) {
-			truck.mGetFlg = false;
-			time(&TruckStart);
+			TruckInitialize();
+			//truck.mGetFlg = false;
+			//time(&TruckStart);
 		}
 	}
 
