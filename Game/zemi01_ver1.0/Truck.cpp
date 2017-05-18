@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "Truck.h"
+#include "Player.h"
 #include <time.h>
 #include "Define.h"
 #include "Enum.h"
@@ -9,7 +10,10 @@ struct TRUCK truck;
 time_t TruckStart, TruckNow;        // 納品者が来るまでの計測開始時間と経過時間
 
 // 画像ハンドル
-int TruckImage[2];
+int TruckImage;
+
+// プレイヤーと納品者の距離を格納する変数
+int Len;
 
 
 /**************************************************
@@ -29,22 +33,24 @@ void TruckInitialize() {
 	else {
 		truck.mX = TRUCK_SPAWN_LEFT;
 	}
-	truck.mY = 0;
+	truck.mY = 750;
 	truck.mCenterX = truck.mX + (TRUCK_WIDTH / 2);
 	truck.mCenterY = truck.mY + (TRUCK_HEIGHT / 2);
 	truck.mHitCeil = truck.mCenterY - TRUCK_HEIGHT;
 	truck.mHitFloor = truck.mCenterY + TRUCK_HEIGHT;
 	truck.mHitLeft = truck.mCenterX - TRUCK_WIDTH;
 	truck.mHitRight = truck.mCenterX + TRUCK_WIDTH;
-	truck.mSpeed = (int)(TRUCK_MOVE_HEIGHT / (DELI_PASS_TIME * 60));
 	truck.mGetFlg = false;
-	truck.mLivingFlg = false;
+	truck.mLivingFlg = true;
+	// プレイヤーと納品者の距離を算出
+	Len = ReturnPlayerCenterY() - truck.mCenterY;
 
+	truck.mSpeed = (int)(Len / (DELI_GET_TIME * 60));
 	// 時間取得
 	time(&TruckStart);
 
 	// 画像のロード
-	LoadDivGraph(TRUCK_OBJECT, 2, 2, 1, TRUCK_WIDTH, TRUCK_HEIGHT, TruckImage);
+	TruckImage = LoadGraph(TRUCK_OBJECT);
 }
 
 /***************************************************
@@ -55,7 +61,17 @@ void TruckInitialize() {
 void TruckMove() {
 
 	// 納品者を動かす
-	truck.mY += truck.mSpeed;
+	if (truck.mGetFlg == false) {
+		truck.mY--;
+	}
+	else{
+		truck.mY++;
+    }
+
+	// 止める
+	if (truck.mY < 300) {
+		truck.mY = 300;
+	}
 	truck.mCenterY = truck.mY + (TRUCK_HEIGHT / 2);
 	truck.mHitCeil = truck.mCenterY - TRUCK_HEIGHT;
 	truck.mHitFloor = truck.mCenterY + TRUCK_HEIGHT;
@@ -83,16 +99,12 @@ void TruckUpdate() {
 	else {
 		// 通り過ぎる時間になったら
 		if ((TruckStart + DELI_PASS_TIME) <= TruckNow) {
-			// 初期化
-			TruckInitialize();
+			truck.mGetFlg = false;
 			time(&TruckStart);
 		}
 	}
 
-	// 納品者がいるなら
-	if (truck.mLivingFlg == true) {
-		TruckMove();
-	}
+	TruckMove();
 
 }
 
@@ -115,11 +127,7 @@ void TruckRender() {
 		DrawFormatString(0, 170, GetColor(255, 255, 255), "納品者が通過するまで:%d秒", (int)((TruckStart + DELI_PASS_TIME) - TruckNow));
 	}
 
-	// 納品者が存在しているなら
-	if (truck.mLivingFlg == true) {
-		DrawGraph(truck.mX, truck.mY, TruckImage[0], TRUE);
-	}
-
+	DrawGraph(truck.mX, truck.mY, TruckImage, TRUE);
 }
 
 /****************************************

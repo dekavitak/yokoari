@@ -29,9 +29,9 @@
 #define GOAL 20               // 目標納品数
 
 /* Truck */
-#define TRUCK_WIDTH 128       // トラックの横幅
+#define TRUCK_WIDTH 50       // トラックの横幅
 #define TRUCK_HEIGHT 128      // トラックの縦幅
-#define TRUCK_MOVE_HEIGHT 800 // トラックが動く横幅
+#define TRUCK_MOVE_HEIGHT 1000 // トラックが動く横幅
 #define TRUCK_SPAWN_RIGHT 700 // トラックの出現する場所
 #define TRUCK_SPAWN_LEFT 100  // トラックの出現する場所
 
@@ -39,7 +39,7 @@
 /* Time */
 #define MAX_TIME 180          // 制限時間
 #define DELI_GET_TIME 15       // 納品者が来るまでの時間
-#define DELI_PASS_TIME 3       // 納品者が通り過ぎるまでの時間
+#define DELI_PASS_TIME 10      // 納品者が通り過ぎるまでの時間
 #define MAX_TIME 3000          // 制限時間
 
 
@@ -54,7 +54,7 @@
 #define ADULT_ENEMY "img/enemy/Adult.png"      // 大人
 #define KIDS_ENEMY "img/enemy/Kids.png"        // 子供
 #define WATER_ENEMY "img/enemy/water.png"      // 水
-#define TRUCK_OBJECT "img/Player/Truck.png"    // トラック
+#define TRUCK_OBJECT "img/Player/truck.png"    // トラック
 #define TITLE_PIC "img/stage/title.png"        // タイトル画像
 #define SCENE_PIC "img/stage/scene.png"        // シーン画像
 #define TUTORIAL_PIC "img/stage/tutorial.png"  // チュートリアル画像
