@@ -32,3 +32,19 @@
 #define AITEM_SE "sound/Aitem.mp3"   // アイテム系SE
 #define DAMAGE_SE "sound/Damage.mp3" // 接触時SE
 #define SELECT_SE "sound/Select.mp3" // 選択時SE
+
+/* 画像系 */
+#define ADULT_ENEMY "img/enemy/Adult.png"      // 大人
+#define KIDS_ENEMY "img/enemy/Kids.png"        // 子供
+#define WATER_ENEMY "img/enemy/water.png"      // 水
+#define TRUCK_OBJECT "img/Player/truck.png"    // トラック
+#define TITLE_PIC "img/stage/title.png"        // タイトル画像
+#define SCENE_PIC "img/stage/scene.png"        // シーン画像
+#define TUTORIAL_PIC "img/stage/tutorial.png"  // チュートリアル画像
+#define STAGE_PIC "img/stage/stage.png"        // 道
+#define BACK_GROUND "img/stage/backGround.png" // 背景画像
+
+/* UI */
+#define MENU_BUTTON "img/menuButton"             // メニューボタン
+#define START_BUTTON "img/startButton.png"       // スタートボタン
+#define TUTORIAL_BUTTON "img/tutorialButton.png" // チュートリアルボタン
