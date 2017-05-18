@@ -44,7 +44,7 @@ void SceneTask::Finalize()
 ***************************************/
 void SceneTask::Draw()
 {
-	DrawGraph(0, 0, m_sceneHandle, FALSE);
+	DrawExtendGraph(0, 0, 1000, 720, m_sceneHandle, FALSE);
 
 	// サウンド再生フラグを立てる
 	mSoundPlayFlag = CheckSoundMem(mSoundPlayHandle);

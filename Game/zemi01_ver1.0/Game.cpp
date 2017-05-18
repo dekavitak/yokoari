@@ -19,7 +19,7 @@ Game::Game(ISceneChanger* changer) : SceneTask(changer) {
 ***************************************/
 
 void Game::Initialize() {
-	m_sceneHandle = LoadGraph("STAGE_PIC");    // 画像のロード
+	m_sceneHandle = LoadGraph(STAGE_PIC);    // 画像のロード
 	mSoundPlayHandle = LoadSoundMem(GAME_BGM); // サウンドのロード
 	PlayerInitialize();               // プレイヤーの初期化
 
@@ -28,6 +28,7 @@ void Game::Initialize() {
 	}
 	TimerInitialize();
 
+	SetFontSize(16);
 }
 
 /***************************************
@@ -71,7 +72,5 @@ void Game::Update() {
 
 void Game::Draw() {
 	SceneTask::Draw(); // 親クラスの描画メソッドを呼ぶ
-	DrawString(0, 0, "ゲーム画面です。", GetColor(255, 255, 255));
-	DrawString(0, 20, "Escキーを押すとメニュー画面に戻ります。", GetColor(255, 255, 255));
-	DrawString(0, 40, "Rキーを押すとリザルト画面に戻ります。", GetColor(255, 255, 255));
+	
 }

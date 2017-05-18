@@ -25,7 +25,7 @@ Result::Result(ISceneChanger * changer) : SceneTask(changer)
 void Result::Initialize()
 {
 
-	m_sceneHandle = LoadGraph("");
+	m_sceneHandle = LoadGraph(SCENE_PIC);
 	mSoundPlayHandle = LoadSoundMem(BACK_BGN); // サウンドのロード
 }
 

@@ -24,9 +24,10 @@ Title::Title(ISceneChanger * changer) : SceneTask(changer)
 ***************************************/
 void Title::Initialize()
 {
-	m_sceneHandle = LoadGraph("TITLE_PIC");
+	SetFontSize(64);
+	m_sceneHandle = LoadGraph(TITLE_PIC);
 	mSoundPlayHandle = LoadSoundMem(BACK_BGN); // サウンドのロード
-
+	
 }
 
 /***************************************
@@ -38,7 +39,10 @@ void Title::Initialize()
 ***************************************/
 void Title::Update()
 {
-	if (CheckHitKey(KEY_INPUT_SPACE) != 0) {      // スペースキーが押されていたら
+	Mouse_Input = GetMouseInput();
+	GetMousePoint(&Mouse_x, &Mouse_y);
+
+	if (Mouse_Input & MOUSE_INPUT_LEFT) {
 		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Menu); // シーンをタイトルに変更
 	}
@@ -54,7 +58,6 @@ void Title::Update()
 void Title::Draw()
 {
 	SceneTask::Draw(); // 親クラスの描画メソッドを呼ぶ
-	DrawString(0, 0, "タイトル画面です。", GetColor(255, 255, 255));
-	DrawString(0, 20, "スペースキーを押すとメニュー画面に戻ります。", GetColor(255, 255, 255));
+	DrawString(160, 500, "クリックでスタート!!", GetColor(0, 0, 0));
 }
 

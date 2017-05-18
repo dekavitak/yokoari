@@ -25,8 +25,9 @@ Tutorial::Tutorial(ISceneChanger * changer) : SceneTask(changer)
 ***************************************/
 void Tutorial::Initialize()
 {
-	m_sceneHandle = LoadGraph("");
+	m_sceneHandle = LoadGraph(TUTORIAL_PIC);
 	mSoundPlayHandle = LoadSoundMem(BACK_BGN); // サウンドのロード
+	SetFontSize(32);
 }
 
 /***************************************
@@ -38,7 +39,9 @@ void Tutorial::Initialize()
 ***************************************/
 void Tutorial::Update()
 {
-	if (CheckHitKey(KEY_INPUT_ESCAPE) != 0) {      // Escキーが押されていたら
+	Mouse_Input = GetMouseInput();
+	GetMousePoint(&Mouse_x, &Mouse_y);
+	if (Mouse_Input & MOUSE_INPUT_LEFT) {
 		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Menu); // シーンをメニューに変更
 	}
@@ -54,7 +57,7 @@ void Tutorial::Update()
 void Tutorial::Draw()
 {
 	SceneTask::Draw(); // 親クラスの描画メソッドを呼ぶ
-	DrawString(0, 0, "チュートリアル画面です。", GetColor(255, 255, 255));
-	DrawString(0, 20, "Escキーを押すとメニュー画面に戻ります。", GetColor(255, 255, 255));
+	
+	DrawString(320, 660, "クリックで戻れるよ！", GetColor(0, 0, 0));
 }
 

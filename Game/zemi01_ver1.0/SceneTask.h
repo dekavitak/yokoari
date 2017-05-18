@@ -18,7 +18,7 @@ protected:
 	int mSoundPlayHandle;          // サウンド格納用変数
 	int mSoundPlayFlag = 0;        // サウンド再生フラグ
 	ISceneChanger* m_sceneChanger; // クラス所有元にシーン切り替えを伝えるインターフェース
-
+	
 public:
 	SceneTask(ISceneChanger* changer);   // コンストラクタ	
 	virtual ~SceneTask() {}               // デストラクタ

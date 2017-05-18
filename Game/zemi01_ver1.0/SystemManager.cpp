@@ -40,8 +40,9 @@ int SystemManager::Update()
 
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0) {//画面更新 & メッセージ処理 & 画面消去
 
-		sceneMgr.Update();  // 更新処理を呼び出す
 		sceneMgr.Draw();    // 描画処理を呼び出す
+		sceneMgr.Update();  // 更新処理を呼び出す
+		
 
 	}
 
