@@ -20,9 +20,10 @@ struct PLAYER {
 // プレイヤーの関数
 
 void PlayerInitialize();    // 初期化
-void PlayerView();          // プレイヤーの描画
+void PlayerRender();          // プレイヤーの描画
 void PlayerController();    // 操作
 void PlayerMove();          // プレイヤーの動き
+void PlayerUpdate();        // プレイヤーの更新
 void PlayerMoveLimit();     // プレイヤーの動きの制限
 void PlayerAnimation();     // プレイヤーのアニメーション
 int ReturnPlayerRight();    // プレイヤーの当たり判定の右端を返す

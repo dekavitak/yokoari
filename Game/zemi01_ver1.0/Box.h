@@ -14,9 +14,10 @@ struct Box {
 };
 
 // 段ボールの関数
-void BoxInitialize(); // 段ボールの初期化
-void BoxView();       // 段ボールの描画
-void BoxMove();       // 段ボールの動き
+void BoxInitialize(int); // 段ボールの初期化
+void BoxRender();       // 段ボールの描画
+void BoxMove(int);       // 段ボールの動き
+void BoxUpdate();  // 段ボールの更新処理
 void BoxMoveLimit(int);     // 段ボールの動きの制限
 int ReturnBoxRight(int);    // 段ボールの当たり判定の右端を返す
 int ReturnBoxLeft(int);     // 段ボールの当たり判定の左端を返す
