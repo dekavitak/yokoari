@@ -15,5 +15,8 @@ private:
 	int m_y;
 	int m_CenterX;
 	int m_CenterY;
+	int count;
+	// ‰æ‘œƒnƒ“ƒhƒ‹
+	int EnemyImage[2];
 };
 

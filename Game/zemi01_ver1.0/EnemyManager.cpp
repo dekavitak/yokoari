@@ -14,9 +14,9 @@
 ***************************************/
 EnemyManager::EnemyManager()
 {
-	mEnemy[0] = (EnemyTask*) new AdultEnemy;
-	mEnemy[1] = (EnemyTask*) new KidsEnemy;
-	mEnemy[2] = (EnemyTask*) new WaterEnemy;
+	mEnemy[0] = (EnemyTask*) new WaterEnemy;
+	mEnemy[1] = (EnemyTask*) new AdultEnemy;
+	mEnemy[2] = (EnemyTask*) new KidsEnemy;
 
 }
 

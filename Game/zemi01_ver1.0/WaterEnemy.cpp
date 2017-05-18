@@ -13,6 +13,8 @@ WaterEnemy::WaterEnemy()
 	m_y = 100;
 	m_CenterX = m_x + (ENEMY_WIDTH  / 2);
 	m_CenterY = m_y + (ENEMY_HEIGHT / 2);
+	m_enemyHandle = LoadGraph(WATER_ENEMY);
+	
 }
 
 
@@ -43,7 +45,7 @@ void WaterEnemy::Update()
 
 	// “G‚ªƒvƒŒƒCƒ„[‚ÉG‚ê‚½‚È‚ç
 	if (ReturnPlayerHitFlg() == ENEMY) {
-		DrawString(100, 100, "Hit", GetColor(255, 255, 255));
+		
 		ResetTakeCnt();
 		// “–‚½‚è”»’è‚Ì‰Šú‰»
 		InitBoxHitFlg();
@@ -53,6 +55,8 @@ void WaterEnemy::Update()
 
 void WaterEnemy::Draw()
 {
-	DrawString(m_x, m_y, "…", GetColor(255, 255, 255));
+
+	DrawExtendGraph(m_x, m_y, m_x + 100, m_y + 100, m_enemyHandle, TRUE);
+
 }
 

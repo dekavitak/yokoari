@@ -18,5 +18,8 @@ private:
 	int m_moveCnt = 0;
 	int m_Flag = ENEMY_RIGHT;
 	int count;
+	// ‰æ‘œƒnƒ“ƒhƒ‹
+	int EnemyImage[2];
+	
 };
 

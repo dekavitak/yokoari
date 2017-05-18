@@ -11,6 +11,9 @@ KidsEnemy::KidsEnemy()
 {
 	m_x = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
 	m_y = 100;
+	// 画像のロード
+	LoadDivGraph(KIDS_ENEMY, 2, 2, 1, 128, 128, EnemyImage);
+	count = 0;
 }
 
 
@@ -21,7 +24,8 @@ void KidsEnemy::Initialize()
 
 void KidsEnemy::Update()
 {
-	m_y++;
+	count++;
+	m_y+=5;
 	if (m_y > STAGE_FLOOR) {
 
 		m_x = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
@@ -40,7 +44,7 @@ void KidsEnemy::Update()
 
 	// 敵がプレイヤーに触れたなら
 	if (ReturnPlayerHitFlg() == ENEMY) {
-		DrawString(100, 100, "Hit", GetColor(255, 255, 255));
+		
 		ResetTakeCnt();
 		// 当たり判定の初期化
 		InitBoxHitFlg();
@@ -49,6 +53,11 @@ void KidsEnemy::Update()
 
 void KidsEnemy::Draw()
 {
-	DrawString(m_x, m_y, "子供", GetColor(255, 255, 255));
+	int temp;
+	temp = count % 20 / 10;
+	if (temp == 2)
+		temp = 1;
+	
+	DrawGraph(m_x, m_y, EnemyImage[temp], TRUE);
 }
 

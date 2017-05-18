@@ -5,8 +5,6 @@
 #include "Player.h"
 #include "Enum.h"
 
-// 画像ハンドル
-int EnemyImage[2];
 
 AdultEnemy::AdultEnemy()
 {
@@ -15,7 +13,9 @@ AdultEnemy::AdultEnemy()
 	m_moveCnt = 0;
 	m_Flag = ENEMY_RIGHT;
 	// 画像のロード
-	LoadDivGraph(ADULT_ENEMY, 2, 2, 1, 64, 128, EnemyImage);
+	LoadDivGraph(ADULT_ENEMY, 2, 2, 1, 128, 128, EnemyImage);
+	count = 0;
+	
 }
 
 
@@ -27,6 +27,7 @@ void AdultEnemy::Initialize()
 
 void AdultEnemy::Update()
 {
+	count++;
 	if (m_moveCnt == 50 && m_Flag == ENEMY_RIGHT) {
 		m_moveCnt = 0;
 		m_Flag = ENEMY_LEFT;
@@ -45,7 +46,7 @@ void AdultEnemy::Update()
 		m_moveCnt++;
 	}
 
-	m_y++;
+	m_y+=2;
 	if (m_y > STAGE_FLOOR) {
 
 		m_x = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
@@ -64,7 +65,8 @@ void AdultEnemy::Update()
 
 	// 敵がプレイヤーに触れたなら
 	if (ReturnPlayerHitFlg() == ENEMY) {
-		DrawString(100, 100, "Hit", GetColor(255, 255, 255));
+	
+		
 		ResetTakeCnt();
 		// 当たり判定の初期化
 		InitBoxHitFlg();
