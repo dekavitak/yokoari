@@ -28,14 +28,13 @@
 #define BOX_TAKE_LIMIT 5      // 段ボールを１度に持てる数の限界
 #define GOAL 20               // 目標納品数
 
-<<<<<<< HEAD
+
 /* Time */
 #define MAX_TIME 180          // 制限時間
 #define DELI_GET_TIME 15       // 納品者が来るまでの時間
 #define DELI_PASS_TIME 3       // 納品者が通り過ぎるまでの時間
-=======
 #define MAX_TIME 3000          // 制限時間
->>>>>>> 178e4849f0723f2c89f906f984aa2a087ff0f45f
+
 
 /* サウンド系 */
 #define BACK_BGN "sound/BGM.mp3"      // 共有BGM

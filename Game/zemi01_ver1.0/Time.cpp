@@ -3,13 +3,10 @@
 #include<time.h>
 #include"Define.h"
 
-<<<<<<< HEAD
 time_t LimitStart, Now;  // 開始時の時間, 経過時間
 time_t DeliStart;        // 納品者が来るまでの計測開始時間
-=======
 
 time_t start, now;  // 開始時の時間, 経過時間
->>>>>>> 178e4849f0723f2c89f906f984aa2a087ff0f45f
 bool timer_flg;     // 制限時間が経過したかどうかのフラグ
 bool deli_flg;      // 納品者情報の表示の切り替えフラグ
 
