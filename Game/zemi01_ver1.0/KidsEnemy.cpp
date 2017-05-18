@@ -7,7 +7,6 @@
 #include "Enum.h"
 
 
-
 KidsEnemy::KidsEnemy()
 {
 	m_x = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;

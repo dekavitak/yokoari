@@ -4,6 +4,7 @@
 #include "KidsEnemy.h"
 #include "WaterEnemy.h"
 
+
 /***************************************
 関数名 : EnemyManager()
 概要   : コンストラクタ

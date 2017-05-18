@@ -8,6 +8,7 @@
 #include "SceneTask.h"
 
 class SceneManager : public ISceneChanger, IScene {
+	
 
 private:
 	SceneTask* mScene;    // ƒV[ƒ“ŠÇ—•Ï”

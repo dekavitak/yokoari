@@ -16,6 +16,7 @@
 ***************************************/
 SceneManager::SceneManager() : mNextScene(eScene_Neutral) // Ÿ‚ÌƒV[ƒ“ŠÇ—•Ï”
 {
+
 	mScene = (SceneTask*) new Title(this);
 }
 

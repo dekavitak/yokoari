@@ -3,7 +3,6 @@
 #include "EnemyTask.h"
 
 
-
 class WaterEnemy : public EnemyTask
 {
 public:

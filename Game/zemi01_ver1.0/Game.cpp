@@ -6,6 +6,7 @@
 #include "Time.h"
 
 
+
 Game::Game(ISceneChanger* changer) : SceneTask(changer) {
 }
 

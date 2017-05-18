@@ -3,6 +3,7 @@
 #include<time.h>
 #include"Define.h"
 
+
 time_t start, now;  // 開始時の時間, 経過時間
 bool timer_flg;     // 制限時間が経過したかどうかのフラグ
 

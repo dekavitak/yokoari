@@ -8,6 +8,8 @@
 #include "ISceneChanger.h"
 #include "EnemyManager.h"
 
+
+
 //ƒQ[ƒ€‰æ–ÊƒNƒ‰ƒX
 class Game : public SceneTask {
 

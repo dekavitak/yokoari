@@ -1,6 +1,8 @@
 #ifndef _BOX_H_
 #define _BOX_H_
 
+
+
 // 段ボールの基本データ
 struct Box {
 	bool mLivingFlg; // 段ボールのアクティブ状態

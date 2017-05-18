@@ -2,6 +2,7 @@
 #include "Menu.h"
 #include "Define.h"
 
+
 Menu::Menu(ISceneChanger* changer) : SceneTask(changer) {
 }
 

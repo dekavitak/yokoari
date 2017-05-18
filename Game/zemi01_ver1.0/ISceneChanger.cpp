@@ -1,5 +1,6 @@
 #include "ISceneChanger.h"
 
+
 /***************************************
 関数名 : ~SystemManager()
 概要   : デストラクタ

@@ -7,6 +7,7 @@ struct Hit {
 
 };
 
+
 // 当たり判定の関数
 void InitBoxHitFlg();    // 段ボールの当たり判定フラグの初期化
 void InitPlayerHitFlg(); // プレイヤーの当たり判定フラグの初期化

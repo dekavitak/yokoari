@@ -1,6 +1,7 @@
 #include "EnemyTask.h"
 #include "Define.h"
 
+
 class AdultEnemy : public EnemyTask
 {
 public:

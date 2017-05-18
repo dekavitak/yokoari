@@ -5,6 +5,7 @@
 #define PLAYER_MAX_SPEED 7    // プレイヤーの最高速度
 #define ANIMATION_SPEED 30    // アニメーションの速度
 
+
 /* Enemy */
 #define ENEMY_MAX_CREATE 10   // 敵の生成できる最大数
 #define ENEMY_RIGHT 0         // 敵が右を向いている情報

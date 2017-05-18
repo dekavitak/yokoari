@@ -2,6 +2,7 @@
 #include "Config.h"
 #include "Define.h"
 
+
 /***************************************
 関数名 : Config()
 概要   : コンストラクタ

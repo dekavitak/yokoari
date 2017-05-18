@@ -8,6 +8,7 @@
 
 class Result : public SceneTask
 {
+
 public:
 	Result(ISceneChanger * changer); // コンストラクタ
 	void Initialize() override;      // 初期化処理をオーバーライド
