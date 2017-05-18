@@ -38,8 +38,8 @@ void TruckInitialize() {
 	truck.mCenterY = truck.mY + (TRUCK_HEIGHT / 2);
 	truck.mHitCeil = truck.mCenterY - TRUCK_HEIGHT;
 	truck.mHitFloor = truck.mCenterY + TRUCK_HEIGHT;
-	truck.mHitLeft = truck.mCenterX - TRUCK_WIDTH;
-	truck.mHitRight = truck.mCenterX + TRUCK_WIDTH;
+	truck.mHitLeft = truck.mCenterX - (TRUCK_WIDTH*2);
+	truck.mHitRight = truck.mCenterX + (TRUCK_WIDTH*2);
 	truck.mGetFlg = false;
 	truck.mLivingFlg = true;
 	// プレイヤーと納品者の距離を算出

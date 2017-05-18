@@ -6,7 +6,6 @@
 #define PLAYER_MAX_SPEED 7    // プレイヤーの最高速度
 #define ANIMATION_SPEED 30    // アニメーションの速度
 
-
 /* Enemy */
 #define ENEMY_MAX_CREATE 10   // 敵の生成できる最大数
 #define ENEMY_RIGHT 0         // 敵が右を向いている情報
@@ -16,8 +15,8 @@
 
 /* ステージ範囲 */
 #define STAGE_FLOOR 576       // ステージの一番下
-#define STAGE_LEFT 350        // ステージの左端
-#define STAGE_RIGHT 900       // ステージの右端
+#define STAGE_LEFT 410        // ステージの左端
+#define STAGE_RIGHT 780       // ステージの右端
 
 /* Box */
 #define BOX_SPEED 3           // 段ボールの動く速さ
@@ -32,8 +31,8 @@
 #define TRUCK_WIDTH 50       // トラックの横幅
 #define TRUCK_HEIGHT 128      // トラックの縦幅
 #define TRUCK_MOVE_HEIGHT 1000 // トラックが動く横幅
-#define TRUCK_SPAWN_RIGHT 700 // トラックの出現する場所
-#define TRUCK_SPAWN_LEFT 100  // トラックの出現する場所
+#define TRUCK_SPAWN_RIGHT 900 // トラックの出現する場所
+#define TRUCK_SPAWN_LEFT 350  // トラックの出現する場所
 
 
 /* Time */
