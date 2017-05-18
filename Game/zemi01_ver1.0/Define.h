@@ -38,8 +38,8 @@
 /* Time */
 #define MAX_TIME 180          // 制限時間
 #define DELI_GET_TIME 15       // 納品者が来るまでの時間
-#define DELI_PASS_TIME 10      // 納品者が通り過ぎるまでの時間
-#define MAX_TIME 3000          // 制限時間
+#define DELI_PASS_TIME 20      // 納品者が通り過ぎるまでの時間
+
 
 
 /* サウンド系 */

@@ -17,5 +17,6 @@ private:
 	int m_CenterY;
 	int m_moveCnt = 0;
 	int m_Flag = ENEMY_RIGHT;
+	int count;
 };
 

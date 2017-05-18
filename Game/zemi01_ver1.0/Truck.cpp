@@ -120,12 +120,12 @@ void TruckRender() {
 	// ”[•iŽÒ‚ª“ž’…‚µ‚Ä‚¢‚È‚¢‚È‚ç
 	if (truck.mGetFlg == false) {
 		// ŽžŠÔ‚Ì•\Ž¦
-		DrawFormatString(0, 170, GetColor(255, 255, 255), "”[•iŽÒ‚ª—ˆ‚é‚Ü‚Å:%d•b", (int)((TruckStart + DELI_GET_TIME) - TruckNow));
+		DrawFormatString(0, 170, GetColor(255, 255, 255), "”[•iŽÒ‚ª’Ê‰ß‚·‚é‚Ü‚Å:%d•b", (int)((TruckStart + DELI_GET_TIME) - TruckNow));
 	}
 	// “ž’…‚µ‚Ä‚¢‚é‚È‚ç
 	else {
 		// ŽžŠÔ‚Ì•\Ž¦
-		DrawFormatString(0, 170, GetColor(255, 255, 255), "”[•iŽÒ‚ª’Ê‰ß‚·‚é‚Ü‚Å:%d•b", (int)((TruckStart + DELI_PASS_TIME) - TruckNow));
+		DrawFormatString(0, 170, GetColor(255, 255, 255), "”[•iŽÒ‚ª—ˆ‚é‚Ü‚Å:%d•b", (int)((TruckStart + DELI_PASS_TIME) - TruckNow));
 	}
 
 	DrawGraph(truck.mX, truck.mY, TruckImage, TRUE);

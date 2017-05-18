@@ -5,7 +5,8 @@
 #include "Player.h"
 #include "Enum.h"
 
-
+// 画像ハンドル
+int EnemyImage[2];
 
 AdultEnemy::AdultEnemy()
 {
@@ -13,6 +14,8 @@ AdultEnemy::AdultEnemy()
 	m_y = 100;
 	m_moveCnt = 0;
 	m_Flag = ENEMY_RIGHT;
+	// 画像のロード
+	LoadDivGraph(ADULT_ENEMY, 2, 2, 1, 64, 128, EnemyImage);
 }
 
 
@@ -70,6 +73,11 @@ void AdultEnemy::Update()
 
 void AdultEnemy::Draw()
 {
-	DrawString(m_x, m_y, "大人", GetColor(255, 255, 255));
+	int temp;
+	temp = count % 20 / 10;
+		if (temp == 2)
+			temp = 1;
+		DrawGraph(m_x, m_y, EnemyImage[temp], TRUE);
+
 }
 
