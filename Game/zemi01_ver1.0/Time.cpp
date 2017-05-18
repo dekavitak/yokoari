@@ -8,6 +8,7 @@ time_t LimitStart, Now;  // 開始時の時間, 経過時間
 
 bool timer_flg;     // 制限時間が経過したかどうかのフラグ
 //bool deli_flg;      // 納品者情報の表示の切り替えフラグ
+int m_nowTime;
 
 /****************************************
 機能　：タイマーの初期化
@@ -72,4 +73,14 @@ int ReturnTimerFlg() {
 
 	return timer_flg;
 
+}
+
+/****************************************
+機能　：クリア時間をを返す
+引数　：None
+返り値：None
+*****************************************/
+double ClearTime() {
+	
+	return Now;
 }

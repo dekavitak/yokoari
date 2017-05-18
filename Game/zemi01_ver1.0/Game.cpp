@@ -45,7 +45,7 @@ void Game::Initialize() {
 void Game::Update() {
 	if (CheckHitKey(KEY_INPUT_ESCAPE) != 0) {       // Escキーが押されていたら
 		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
-		m_sceneChanger->ChangeScene(eScene_Menu);   // シーンをメニューに変更
+		m_sceneChanger->ChangeScene(eScene_Result);   // シーンをメニューに変更
 	}
 	if (ReturnDeliveryNum() >= 20 ||
 		ReturnTimerFlg() == true) {            // 段ボールを20個納品したら
