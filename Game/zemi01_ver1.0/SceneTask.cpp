@@ -23,6 +23,15 @@ SceneTask::SceneTask(ISceneChanger* changer) : m_sceneHandle(0)
 void SceneTask::Finalize()
 {
 	DeleteGraph(m_sceneHandle);
+
+	// サウンドを止め、破棄する
+	mSoundPlayFlag = CheckSoundMem(mSoundPlayHandle);
+	if (mSoundPlayFlag == 1) {
+		mSoundPlayFlag = 0;
+		StopSoundMem(mSoundPlayHandle);
+		DeleteSoundMem(mSoundPlayHandle);
+
+	}
 }
 
 /***************************************
@@ -35,4 +44,11 @@ void SceneTask::Finalize()
 void SceneTask::Draw()
 {
 	DrawGraph(0, 0, m_sceneHandle, FALSE);
+
+	// サウンド再生フラグを立てる
+	mSoundPlayFlag = CheckSoundMem(mSoundPlayHandle);
+	if (mSoundPlayFlag == 0) {
+		PlaySoundMem(mSoundPlayHandle, DX_PLAYTYPE_LOOP, TRUE); // 再生
+		mSoundPlayFlag = 1;
+	}
 }

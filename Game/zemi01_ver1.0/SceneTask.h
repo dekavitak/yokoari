@@ -14,6 +14,8 @@ class SceneTask : public IScene
 
 protected:
 	int m_sceneHandle;             // シーン画像ハンドル格納用変数
+	int mSoundPlayHandle;          // サウンド格納用変数
+	int mSoundPlayFlag = 0;        // サウンド再生フラグ
 	ISceneChanger* m_sceneChanger; // クラス所有元にシーン切り替えを伝えるインターフェース
 
 public:

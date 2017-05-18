@@ -60,7 +60,7 @@ void SystemManager::GameIsInit()
 {
 
 	//width height
-	this->GetWindowMode(1280, 720);
+	this->GetWindowMode(1000, 720);
 
 	//ウインドウの名前を設定する
 	SetMainWindowText("働け！ヨコアリくん！");

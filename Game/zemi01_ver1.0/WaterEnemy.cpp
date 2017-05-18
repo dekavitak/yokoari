@@ -1,23 +1,34 @@
 #include "WaterEnemy.h"
 #include "DxLib.h"
+#include "Define.h"
+
 
 
 WaterEnemy::WaterEnemy()
 {
-	m_WaterHandle = LoadGraph("");
-	m_x = 200;
+	m_x = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
 	m_y = 100;
 }
 
 
-WaterEnemy::~WaterEnemy()
+void WaterEnemy::Initialize()
 {
-}
-
-void WaterEnemy::Update() {
 
 }
 
-void WaterEnemy::Draw() {
-	DrawString(m_x, m_y, "ìG(êÖ)ÅB", GetColor(255, 255, 255));
+void WaterEnemy::Update()
+{
+	m_y++;
+	if (m_y > STAGE_FLOOR) {
+
+		m_x = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+		m_y = -100;
+
+	}
 }
+
+void WaterEnemy::Draw()
+{
+	DrawString(m_x, m_y, "êÖ", GetColor(255, 255, 255));
+}
+

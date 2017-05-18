@@ -14,6 +14,9 @@ int PlayerImage[4];
 // マウスの座標を格納する変数
 int Mouse_x, Mouse_y;
 
+// 持っている数を格納する変数
+int Take_num;
+
 /****************************************
 機能　：プレイヤー関連の変数等の初期化
 引数　：None
@@ -27,12 +30,15 @@ void PlayerInitialize() {
 	player.mY = 289;
 	player.mCenterX = player.mX + (PLAYER_WIDTH / 2);
 	player.mCenterY = player.mY + (PLAYER_HEIGHT / 2);
-	player.mSpeed = 5;
+	player.mSpeed = PLAYER_MAX_SPEED;
 	player.mGraphNum = 0;
 	player.mAnimationCnt = 0;
 	player.mTakeFlg = 0;
 	player.mGraphFlg = false;
     InitPlayerHitFlg();
+
+	// 変数の初期化
+	Take_num = 0;
 
 	// 画像のロード
 	LoadDivGraph("img/yokoari.png", 4, 4, 1, 128, 128, PlayerImage);
@@ -87,6 +93,9 @@ void PlayerMove() {
 
 	// プレイヤーの移動する向きを更新
 	PlayerController();
+
+	// 移動速度更新
+	player.mSpeed = PLAYER_MAX_SPEED - ReturnTakeCnt();
 
 	// 移動する向きによってプレイヤーの座標を動かす
 	if (player.mDirec == RIGHT) {

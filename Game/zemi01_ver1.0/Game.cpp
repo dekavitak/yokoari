@@ -1,7 +1,9 @@
 #include "DxLib.h"
 #include "Game.h"
+#include "Define.h"
 #include "Player.h"
 #include "Box.h"
+#include "Time.h"
 
 
 Game::Game(ISceneChanger* changer) : SceneTask(changer) {
@@ -17,8 +19,11 @@ Game::Game(ISceneChanger* changer) : SceneTask(changer) {
 
 void Game::Initialize() {
 	m_sceneHandle = LoadGraph("");    // 画像のロード
+	mSoundPlayHandle = LoadSoundMem(GAME_BGM); // サウンドのロード
 	PlayerInitialize();               // プレイヤーの初期化
-	BoxInitialize();                  // プレイヤーの初期化
+	BoxInitialize();                  // 段ボールの初期化
+	TimerInitialize();
+
 }
 
 /***************************************
@@ -31,19 +36,15 @@ void Game::Initialize() {
 
 void Game::Update() {
 	if (CheckHitKey(KEY_INPUT_ESCAPE) != 0) {       // Escキーが押されていたら
+		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Menu);   // シーンをメニューに変更
 	}
-	if (CheckHitKey(KEY_INPUT_R) != 0) {            // Rキーが押されていたら
+	if (ReturnDeliveryNum() >= 20 ||
+		ReturnTimerFlg() == true) {            // 段ボールを20個納品したら
 		m_sceneChanger->ChangeScene(eScene_Result); // シーンをリザルトに変更
 	}
-	kEnemy.Update();
-	kEnemy.Draw();
-
-	aEnemy.Update();
-	aEnemy.Draw();
-
-	wEnemy.Update();
-	wEnemy.Draw();
+	enemyMgr.Update();
+	enemyMgr.Draw();
 	
 	// 段ボールの動き、描画
 	BoxMove();
@@ -52,6 +53,8 @@ void Game::Update() {
 	// プレイヤーの動き、描画
 	PlayerMove();
 	PlayerView();
+
+	TimerUpdate();
 }
 
 /***************************************

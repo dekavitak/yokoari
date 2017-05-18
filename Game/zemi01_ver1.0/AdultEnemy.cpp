@@ -2,22 +2,53 @@
 #include "DxLib.h"
 
 
+
 AdultEnemy::AdultEnemy()
 {
-	m_AdultHandle = LoadGraph("");
-	m_x = 100;
-	m_y = 10;
+	m_x = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+	m_y = 100;
+	m_moveCnt = 0;
+	m_Flag = ENEMY_RIGHT;
 }
 
 
-AdultEnemy::~AdultEnemy()
+
+void AdultEnemy::Initialize()
 {
+
 }
 
-void AdultEnemy::Update() {
-	m_y += 4;
+void AdultEnemy::Update()
+{
+	if (m_moveCnt == 50 && m_Flag == ENEMY_RIGHT) {
+		m_moveCnt = 0;
+		m_Flag = ENEMY_LEFT;
+	}
+	if (m_moveCnt == 50 && m_Flag == ENEMY_LEFT) {
+		m_moveCnt = 0;
+		m_Flag = ENEMY_RIGHT;
+	}
+
+	if (m_Flag == ENEMY_RIGHT) {
+		m_x++;
+		m_moveCnt++;
+	}
+	if (m_Flag == ENEMY_LEFT) {
+		m_x--;
+		m_moveCnt++;
+	}
+
+	m_y++;
+	if (m_y > STAGE_FLOOR) {
+
+		m_x = GetRand(STAGE_RIGHT - STAGE_LEFT) + STAGE_LEFT;
+		m_y = -200;
+
+	}
 }
 
-void AdultEnemy::Draw() {
-	DrawString(m_x, m_y, "ìG(ëÂêl)ÅB", GetColor(255, 255, 255));
+void AdultEnemy::Draw()
+{
+	DrawString(m_x, m_y, "ëÂêl", GetColor(255, 255, 255));
 }
+

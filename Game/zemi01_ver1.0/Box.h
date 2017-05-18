@@ -19,6 +19,8 @@ void BoxMoveLimit(int);     // 段ボールの動きの制限
 int ReturnBoxRight(int);    // 段ボールの当たり判定の右端を返す
 int ReturnBoxLeft(int);     // 段ボールの当たり判定の左端を返す
 int ReturnBoxTakeFlg(int);     // 段ボールの持たれているフラグを返す
+int ReturnTakeCnt();           // 段ボールを持っている数を返す
+int ReturnDeliveryNum();       // 段ボールを納品した数の合計を返す
 
 
 #endif // !_BOX_H_

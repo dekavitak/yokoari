@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "Tutorial.h"
+#include "Define.h"
 
 
 /***************************************
@@ -24,6 +25,7 @@ Tutorial::Tutorial(ISceneChanger * changer) : SceneTask(changer)
 void Tutorial::Initialize()
 {
 	m_sceneHandle = LoadGraph("");
+	mSoundPlayHandle = LoadSoundMem(BACK_BGN); // サウンドのロード
 }
 
 /***************************************
@@ -36,6 +38,7 @@ void Tutorial::Initialize()
 void Tutorial::Update()
 {
 	if (CheckHitKey(KEY_INPUT_ESCAPE) != 0) {      // Escキーが押されていたら
+		PlaySoundFile(SELECT_SE, DX_PLAYTYPE_NORMAL); // SEの再生
 		m_sceneChanger->ChangeScene(eScene_Menu); // シーンをメニューに変更
 	}
 }
