@@ -10,11 +10,13 @@ struct TRUCK {
 	int mHitCeil;
 	int mHitFloor;
 	int mDirec;
+	int mSpeed;
+	bool mGetFlg;
 	bool mLivingFlg;
 };
 
 // 納品者の関数
-void TruckIntialize();         // 納品者の初期化
+void TruckInitialize();         // 納品者の初期化
 void TruckMove();              // 納品者の動き
 void TruckUpdate();            // 納品者の更新
 void TruckRender();            // 納品者の描画

@@ -42,7 +42,7 @@ void PlayerInitialize() {
 	Take_num = 0;
 
 	// ‰æ‘œ‚Ìƒ[ƒh
-	LoadDivGraph("img/yokoari.png", 4, 4, 1, 128, 128, PlayerImage);
+	LoadDivGraph("img/yokoari.png", 4, 4, 1, PLAYER_WIDTH, PLAYER_HEIGHT, PlayerImage);
 
 }
 
