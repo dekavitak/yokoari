@@ -76,11 +76,12 @@ int ReturnTimerFlg() {
 }
 
 /****************************************
-機能　：クリア時間をを返す
+機能　：クリアした時点での経過時間を返す
 引数　：None
 返り値：None
 *****************************************/
-double ClearTime() {
-	
-	return Now;
+int ReturnClearTime() {
+
+	return (int)MAX_TIME - ((LimitStart + MAX_TIME) - Now);
+
 }

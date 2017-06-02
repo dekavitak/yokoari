@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "Result.h"
 #include "Define.h"
+#include "Time.h"
 
 
 
@@ -61,5 +62,7 @@ void Result::Draw()
 	SceneTask::Draw(); // 親クラスの描画メソッドを呼ぶ
 	DrawString(320, 300, "クリアおめでとう！", GetColor(0, 0, 0));
 	DrawString(320, 660, "クリックで戻れるよ！", GetColor(0, 0, 0));
+
+	DrawFormatString(320, 350, GetColor(0, 0, 0), "クリアまでの時間：%d秒", ReturnClearTime());
 }
 
